@@ -40,11 +40,11 @@ void loop() {
   if (Serial.available()){
     String inCommand = Serial.readString();
     int indexLoc = inCommand.indexOf(',');
-    int stear = inCommand.substring(0,indexLoc).toInt();
+    int steer = inCommand.substring(0,indexLoc).toInt();
     int drive = inCommand.substring(indexLoc + 1, inCommand.length()).toInt();
 
     //Passing the setting to the command loop.
-    servoSteerSetting = stear;
+    servoSteerSetting = steer;
     servoDriveSetting = drive;
   }
 
