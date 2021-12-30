@@ -2,17 +2,17 @@
 #include <Servo.h>
 
 //Servo Pin Numbers
-int servoStearPin = 2;
+int servoSteerPin = 2;
 int servoDrivePin = 0;
 
 //Servos
 //Sevro settings. 90 stright, 30 full right, 150 full left
-Servo servoStear;
+Servo servoSteer;
 
 //Drive servo stop is 50, <50 is backwards, >50 is forward. 85 max forward.
 Servo servoDrive;
 
-int servoStearSetting = 90;
+int servoSteerSetting = 90;
 int servoDriveSetting = 50;
 
 //Voltage input
@@ -22,7 +22,7 @@ int voltage = 0;
 
 void setup() {
   //Setting up the servos.
-  servoStear.attach(servoStearPin);
+  servoSteer.attach(servoSteerPin);
   servoDrive.attach(servoDrivePin);
 
   //Setting up serial communications.
@@ -33,7 +33,7 @@ void setup() {
 void loop() {
   
   //servoStear.write(30);
-  servoStear.write(servoStearSetting);
+  servoSteer.write(servoSteerSetting);
   servoDrive.write(servoDriveSetting);
   delay(1);
 
@@ -44,7 +44,7 @@ void loop() {
     int drive = inCommand.substring(indexLoc + 1, inCommand.length()).toInt();
 
     //Passing the setting to the command loop.
-    servoStearSetting = stear;
+    servoSteerSetting = stear;
     servoDriveSetting = drive;
   }
 
@@ -53,7 +53,7 @@ void loop() {
   voltage = analogRead(analogPin);
 
   Serial.print("Current Setting: ");
-  Serial.print(servoStearSetting);
+  Serial.print(servoSteerSetting);
   Serial.print(",");
   Serial.print(servoDriveSetting);
   Serial.print(",");
