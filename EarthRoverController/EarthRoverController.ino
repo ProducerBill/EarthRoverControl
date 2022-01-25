@@ -51,12 +51,16 @@ void loop() {
 
   //Reading the voltage
   voltage = analogRead(analogPin);
+  float vOut = (0.00912 * voltage) - 0.0465;
 
   Serial.print("Current Setting: ");
   Serial.print(servoSteerSetting);
   Serial.print(",");
   Serial.print(servoDriveSetting);
   Serial.print(",");
-  Serial.println(voltage);
+  Serial.print(voltage);
+  Serial.print(",");
+  Serial.println(vOut);
+  
 
 }
